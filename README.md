@@ -19,6 +19,10 @@ The APT repository is updated and some stuff is installed:
 - git, tig,
 - vim, less
 - sakura (shell)
+- nmap
+- htop
+- nix
+- nodejs v12.3.1
 
 Then, `nomachine` is installed, which provides the remote desktop functionality.
 
@@ -36,6 +40,8 @@ Then, as the `wires` user, some more stuff is installed:
     - `zjhmale.idris` Idris support
 - Elba as `~wires/bin/elba`
 - Some statebox code from public repos into `~wires/code`
+
+Then the `/nix` store is warmed up by starting a nix-env shell in the repos.
 
 # Updating the image
 

@@ -1,7 +1,7 @@
 #/bin/sh
 
 DEBIAN_FRONTEND=noninteractive apt update -y
-DEBIAN_FRONTEND=noninteractive apt install -y task-lxde-desktop aptitude less vim-gtk sakura git tig
+DEBIAN_FRONTEND=noninteractive apt install -y task-lxde-desktop aptitude less vim-gtk sakura git tig nmap htop
 
 cd /tmp
 
@@ -13,6 +13,20 @@ echo  "installing vscode"
 curl -Lo code_1.34.0-1557957934_amd64.deb https://go.microsoft.com/fwlink/?LinkID=760868
 dpkg -i code_1.34.0-1557957934_amd64.deb
 cd
+
+echo "install nix"
+curl -Lo /tmp/nix-install.sh https://nixos.org/nix/install
+
+echo "set sysctl kernel.unprivileged_userns_clone=1 for nix"
+sysctl kernel.unprivileged_userns_clone=1
+
+echo "install as wires user"
+sudo su -l wires -c "sh /tmp/nix-install.sh"
+
+echo "install node js"
+curl -LO https://nodejs.org/dist/v12.3.1/node-v12.3.1-linux-x64.tar.xz
+tar xJvf node-v12.3.1-linux-x64.tar.xz
+mv node-v12.3.1-linux-x64 /usr/local/
 
 cat << EOF > /usr/NX/etc/server.cfg
 AcceptedWebMethods classic,webrtc
@@ -60,6 +74,14 @@ cd
 mkdir -p code/statebox code/typedefs
 git clone https://github.com/typedefs/typedefs code/typedefs/typedefs.git
 git clone https://github.com/statebox/idris-ct code/statebox/idris-ct.git
+
+# warm up the nix store
+cd ~/code/typedefs/typedefs.git
+echo exit | nix-shell -A typedefs
+
+cd ~/code/statebox/idris-ct.git
+echo exit | nix-shell -A idris-ct
+
 EOF
 
 chown wires /tmp/setup.sh
