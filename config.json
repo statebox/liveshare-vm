@@ -1,0 +1,8 @@
+{
+    "source_image_family": "debian-9",
+    "machine_type": "n1-standard-1",
+    "region": "europe-west4",
+    "zone": "europe-west4-a",
+    "project_id": "statebox-infra",
+    "service_account_json": "../credentials/statebox-infra-31db72712c3f.json"
+  }
