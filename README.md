@@ -11,9 +11,31 @@ gcloud --project=statebox-infra compute ssh wires@liveshare -- -L 4555:localhost
 
 # Machine configuration
 
-First, `nomachine` is installed, which provides the remote desktop functionality.
+Based of debian-9 and with a `wires` user.
 
+The APT repository is updated and some stuff is installed:
 
+- LXDE desktop,
+- git, tig,
+- vim, less
+- sakura (shell)
+
+Then, `nomachine` is installed, which provides the remote desktop functionality.
+
+VSCode is installed.
+
+It writes a NX server config and creates a user:
+
+> login: `wires`
+> password: `geheim`
+
+Then, as the `wires` user, some more stuff is installed:
+
+- Some VS code extentions are installed
+    - `ms-vsliveshare.vsliveshare` Live sharing
+    - `zjhmale.idris` Idris support
+- Elba as `~wires/bin/elba`
+- Some statebox code from public repos into `~wires/code`
 
 # Updating the image
 
