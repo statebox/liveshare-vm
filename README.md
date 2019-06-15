@@ -1,3 +1,9 @@
+# About
+
+Machine Image builder for our VSCode Liveshare sessions (https://twitch.tv/statebox).
+
+Some more background on how we're using this, here https://hackmd.io/6jSPsTXDTcu0xxqsdfMBdA
+
 # Usage
 
 Create a VM from this image using the *google cloud console*.
