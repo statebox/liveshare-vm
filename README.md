@@ -68,3 +68,7 @@ packer build -var-file=config.json packer.json
 - multicursor window manager http://multicursor-wm.sourceforge.net/#compiling
 
 https://www.nomachine.com/accessing-your-remote-desktop-on-google-cloud-platform-via-nomachine
+
+https://syslog.ravelin.com/baking-with-packer-in-google-cloud-ef20dd3a6098?gi=3edb76d8eb59
+
+cannot use root username [ref](https://serverfault.com/questions/792328/using-packer-with-google-cloud-and-getting-an-ssh-connection-issue-w-debian-bui)
