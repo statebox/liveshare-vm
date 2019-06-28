@@ -15,6 +15,8 @@ Then, ssh into it and forward the `nomachine` port, 4000.
 gcloud --project=statebox-infra compute ssh wires@liveshare -- -L 4555:localhost:4000
 ```
 
+You can add the `-A` flag at the end of this command to forward you ssh-agent connection, meaning that you can use your local private keys to push to github. Do not forget to run `ssh-add` before you you connect, to add your keys to the ssh agent.
+
 # Machine configuration
 
 Based of debian-9 and with a `wires` user.
